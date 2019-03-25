@@ -1,4 +1,9 @@
 # 21_del3
+# Test status 
+| Master |  Dev | 
+|:---:|:---:| 
+|[![Build Status](https://travis-ci.com/ToOgFyrreTyvende/21_del3.svg?branch=master)](https://travis-ci.com/ToOgFyrreTyvende/21_del3) |[![Build Status](https://travis-ci.com/ToOgFyrreTyvende/21_del3.svg?branch=dev)](https://travis-ci.com/ToOgFyrreTyvende/21_del3)|  
+
 
 ## Links
 <a href="https://drive.google.com/drive/folders/0B1qlt-Xd6kaQRVpuYThCVUhCbkk">CDIO Opgaver</a> <br>
