@@ -28,6 +28,6 @@ public class MyResource {
     //@JWTNeeded
     @Produces(MediaType.TEXT_PLAIN)
     public String getJWT() {
-        return "Hello, Heroku! - jwt edition";
+        return "Hello, Heroku! - jwt edition v2 veri sorri mister man";
     }
 }
