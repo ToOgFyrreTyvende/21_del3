@@ -7,12 +7,12 @@ public class CreateDB {
 
     public static void main(String[] args){
         CreateDB creator = new CreateDB();
-        creator.createTableQuery();
+        creator.generateTable("");
 
     }
 
     String[] createTableQuery(){
-        return createTableQuery("21_d1_users");
+        return createTableQuery("21_d3_users");
     }
 
     String[] createTableQuery(String db_name){
@@ -27,6 +27,7 @@ public class CreateDB {
                         "CHECK (roles = 'Admin' OR roles = 'Pharmacist' OR roles = 'Foreman' OR roles = 'Operator'));"
         };
     }
+
 
     public void generateTable(String db_name){
         String[] createStatements = createTableQuery();
