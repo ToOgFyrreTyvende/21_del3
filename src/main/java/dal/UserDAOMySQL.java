@@ -12,7 +12,7 @@ public class UserDAOMySQL implements IUserDAO {
     private final String DB_NAME;
 
     public UserDAOMySQL(){
-        DB_NAME = "21_d1_users";
+        DB_NAME = "21_d3_users";
     }
 
     public UserDAOMySQL(String db_name){

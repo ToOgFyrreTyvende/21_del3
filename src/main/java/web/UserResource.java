@@ -1,7 +1,11 @@
 package web;
 
+import dal.IUserDAO;
+import dal.UserDAOMySQL;
 import dto.IUserDTO;
 import dto.UserDTO;
+import functionality.IUserFunctionality;
+import functionality.UserFunctionality;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -13,6 +17,8 @@ import javax.ws.rs.core.Response;
 @Path("/users")
 public class UserResource {
 
+    private IUserDAO userdao = new UserDAOMySQL();
+    private IUserFunctionality userFunc = new UserFunctionality(userdao);
     /**
      * Method handling HTTP GET requests. The returned object will be sent
      * to the client as "text/plain" media type.
@@ -33,10 +39,8 @@ public class UserResource {
     }
 
     @GET
-    @Path("jwt")
-    //@JWTNeeded
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getJWT() {
-        return "Hello, Heroku! - jwt edition";
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get() throws IUserDAO.DALException {
+        return Response.ok(userFunc.getUserList()).build();
     }
 }

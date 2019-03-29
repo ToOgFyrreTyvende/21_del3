@@ -10,7 +10,7 @@ import utils.CreateDB;
 
 class UserFunctionalityTest {
     // Vars
-    private static String dbTestName = "21_d1_users_test";
+    private static String dbTestName = "21_d3_users_test";
     private IUserFunctionality func;
     private UserDTO testUser1;
     private UserDTO testUser2;
