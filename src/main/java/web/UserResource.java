@@ -40,7 +40,35 @@ public class UserResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get() throws IUserDAO.DALException {
+    public Response getAll() throws IUserDAO.DALException {
         return Response.ok(userFunc.getUserList()).build();
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response post(UserDTO user) throws IUserDAO.DALException {
+        try {
+            userFunc.createUser(user);
+            return Response.ok(userFunc.getUser(user.getUserId())).build();
+        } catch (IUserFunctionality.UserInputException e) {
+            e.printStackTrace();
+        }
+
+        return Response.status(Response.Status.NOT_FOUND).entity("Incomplete user").build();
+    }
+
+    @DELETE
+    @Path("{userId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response delete(@PathParam("userId") int id) throws IUserDAO.DALException {
+        try {
+            userFunc.deleteUser(id);
+            return Response.ok("Deleted " + id).build();
+        } catch (IUserFunctionality.UserInputException e) {
+            e.printStackTrace();
+        }
+
+        return Response.status(Response.Status.NOT_FOUND).entity("Incomplete user").build();
     }
 }
