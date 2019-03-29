@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Root resource (exposed at "myresource" path)
  */
-@Path("main")
+@Path("/api")
 public class MyResource {
 
     /**
@@ -20,6 +20,14 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-        return "Hello, eggman.eeee";
+        return "Hello, Heroku!";
+    }
+
+    @GET
+    @Path("jwt")
+    //@JWTNeeded
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getJWT() {
+        return "Hello, Heroku!";
     }
 }
