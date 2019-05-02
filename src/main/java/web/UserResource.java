@@ -31,7 +31,7 @@ public class UserResource {
     public Response get(@DefaultValue("0") @PathParam("userId") int id) {
 
         try {
-            return Response.ok(userFunc.getUser(id)).build();
+            return Response.ok((UserDTO)userFunc.getUser(id)).build();
         } catch (IUserFunctionality.UserInputException e) {
             e.printStackTrace();
         }
@@ -51,6 +51,20 @@ public class UserResource {
 
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error occurred").build();
     }
+
+    @GET
+    @Path("/roles")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAllRoles() {
+        try {
+            return Response.ok(userFunc.getRolesList()).build();
+        } catch (IUserDAO.DALException e) {
+            e.printStackTrace();
+        }
+
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error occurred").build();
+    }
+
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

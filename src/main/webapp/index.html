@@ -25,7 +25,7 @@
 
     <div class="container">
         <h1>List of all users</h1>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUserModal">
+        <button type="button" onclick="app.setForm('create')" class="btn btn-primary" data-toggle="modal" data-target="#createUserModal">
             Create
         </button>
         <span id="counter">0</span>
@@ -56,39 +56,39 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="process.php" method="POST">
+                    <form id="inputForm">
                         <div id="name-group" class="form-group">
                             <label for="userId">User ID</label>
-                            <input type="number" min="11" max="99" class="form-control" name="userId" placeholder="42">
+                            <input type="number" id="userIdInput" min="11" max="99" class="form-control" name="userId" placeholder="42">
                         </div>
 
                         <div id="email-group" class="form-group">
                             <label for="userName">Username</label>
-                            <input type="text" class="form-control" name="userName" placeholder="Harry Potter">
+                            <input type="text" id="userNameInput" class="form-control" name="userName" placeholder="Harry Potter">
                         </div>
 
                         <div id="email-group" class="form-group">
                             <label for="ini">Initials</label>
-                            <input type="text" class="form-control" name="ini" placeholder="HP">
+                            <input type="text" id="iniInput" class="form-control" name="ini" placeholder="HP">
+                        </div>
+
+                        <div id="email-group" class="form-group">
+                            <label for="cpr">CPR</label>
+                            <input type="text" id="cprInput" class="form-control" name="cpr" placeholder="123456-1234">
                         </div>
 
                         <div id="email-group" class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="/dev/ttyUSB0">
+                            <input type="password" id="passwordInput" class="form-control" name="password" placeholder="/dev/ttyUSB0">
                         </div>
 
                         <div id="email-group" class="form-group">
                             <label for="roles">Roles</label>
                             <select class="form-control" id="roles" name="roles" multiple="multiple">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-success">Submit <span
+                        <button id="submitForm" class="btn btn-success">Submit <span
                                 class="fa fa-arrow-right"></span></button>
 
                     </form>
@@ -100,6 +100,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="renders.js"></script>
     <script src="script.js"></script>
 </body>
 

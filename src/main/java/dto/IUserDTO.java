@@ -21,5 +21,12 @@ public interface IUserDTO {
 
     void addRole(String role);
 
+    String getCpr();
+    void setCpr(String cpr);
+
+
     boolean removeRole(String role);
+
+    String getPassword();
+    void setPassword(String password);
 }

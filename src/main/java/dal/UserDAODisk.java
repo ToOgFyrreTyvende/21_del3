@@ -1,5 +1,7 @@
 package dal;
 
+import dto.IUserDTO;
+import dto.IUserRolesDTO;
 import dto.UserDTO;
 
 import java.io.*;
@@ -17,9 +19,9 @@ public class UserDAODisk implements IUserDAO {
 
     // ---- GET USER -------------------------------------------------------------------------------------------------------
     @Override
-    public UserDTO getUser(int userId) throws DALException{
+    public IUserDTO getUser(int userId) {
 
-        List<UserDTO> user_list = new ArrayList<>();
+        List<IUserDTO> user_list = new ArrayList<>();
 
         try{
 
@@ -41,7 +43,7 @@ public class UserDAODisk implements IUserDAO {
             ioe.printStackTrace();
         }
 
-        for (UserDTO user : user_list){
+        for (IUserDTO user : user_list){
             if (user.getUserId() == userId){
                 return user;
             }
@@ -51,9 +53,9 @@ public class UserDAODisk implements IUserDAO {
 
     // ---- GET USER LIST --------------------------------------------------------------------------------------------------
     @Override
-    public List<UserDTO> getUserList() throws DALException{
+    public List<IUserDTO> getUserList() {
 
-        List<UserDTO> user_list = new ArrayList<>();
+        List<IUserDTO> user_list = new ArrayList<>();
 
         try{
 
@@ -78,12 +80,17 @@ public class UserDAODisk implements IUserDAO {
         return user_list;
     }
 
+    @Override
+    public List<IUserRolesDTO> getRoles() throws DALException {
+        return null;
+    }
+
 
     // ---- CREATE USER ----------------------------------------------------------------------------------------------------
     @Override
-    public void createUser(UserDTO user) throws DALException{
+    public void createUser(IUserDTO user) {
 
-        List<UserDTO> user_list = new ArrayList<>();
+        List<IUserDTO> user_list = new ArrayList<>();
 
         try{
 
@@ -120,8 +127,8 @@ public class UserDAODisk implements IUserDAO {
 
     // ---- UPDATE USER ----------------------------------------------------------------------------------------------------
     @Override
-    public void updateUser(UserDTO inputUser) throws DALException{
-        List<UserDTO> user_list = new ArrayList<>();
+    public void updateUser(IUserDTO inputUser) {
+        List<IUserDTO> user_list = new ArrayList<>();
 
         try{
 
@@ -141,7 +148,7 @@ public class UserDAODisk implements IUserDAO {
 
             int inputUserId = inputUser.getUserId();
             int i = 0;
-            for (UserDTO userInList : user_list){
+            for (IUserDTO userInList : user_list){
                 if (userInList.getUserId() == inputUserId){
                     user_list.set(i, inputUser);
                 }
@@ -163,7 +170,7 @@ public class UserDAODisk implements IUserDAO {
 
     // ---- DELETE USER ----------------------------------------------------------------------------------------------------
     @Override
-    public void deleteUser(int userId) throws DALException{
+    public void deleteUser(int userId) {
         List<UserDTO> user_list = new ArrayList<>();
 
         try{

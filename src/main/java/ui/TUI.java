@@ -1,6 +1,6 @@
 package ui;
 
-import dto.UserDTO;
+import dto.*;
 import functionality.IUserFunctionality;
 
 import java.util.InputMismatchException;
@@ -54,7 +54,7 @@ public class TUI implements IUI {
                     while (true){
                         try{
                             userID1 = scan.nextInt();
-                            UserDTO testTaken = func.getUser(userID1);
+                            IUserDTO testTaken = func.getUser(userID1);
                             System.out.println(userID1 + " er desværre optaget, prøv et andet!");
 
                         } catch (IUserFunctionality.UserInputException e){
@@ -106,7 +106,7 @@ public class TUI implements IUI {
                 case 2:
                     System.out.println("|-- Vis enkelt bruger --|");
                     System.out.println("Indtast brugerens ID:");
-                    UserDTO user2;
+                    IUserDTO user2;
                     int userID2;
 
                     while (true){
@@ -201,7 +201,7 @@ public class TUI implements IUI {
                     break;
                 case 5:
                     // Create new UserDTO
-                    UserDTO user5;
+                    IUserDTO user5;
                     System.out.println("|-- Slet bruger -- |");
                     System.out.println("Indtast userID af ønskede bruger");
                     int userID5;
