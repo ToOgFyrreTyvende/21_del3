@@ -12,7 +12,7 @@ public class CreateDB {
     }
 
     String[] createTableQuery(){
-        return createTableQuery("21_d3_users");
+        return createTableQuery(SQLTools.TABLE_NAME);
     }
 
     String[] createTableQuery(String db_name){
@@ -29,10 +29,10 @@ public class CreateDB {
     }
 
 
-    public void generateTable(String db_name){
+    public void generateTable(String table_name){
         String[] createStatements = createTableQuery();
-        if (!db_name.equals("")){
-            createStatements = createTableQuery(db_name);
+        if (!table_name.equals("")){
+            createStatements = createTableQuery(table_name);
         }
 
         try{

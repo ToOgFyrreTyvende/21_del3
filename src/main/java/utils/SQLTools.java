@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class SQLTools {
+    static final public String TABLE_NAME = "21_d3_users";
     static public Connection createConnection(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
