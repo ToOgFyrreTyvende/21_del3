@@ -15,7 +15,7 @@ const utils = {
     },    
     FetchAllUsers: function () {
         $.get('/api/users').done((data) => {
-            this.users = data;
+            this.users = data.sort((a, b) => (a.userId > b.userId) ? 1 : -1);
             this.renderUsers(data);
         })
     },
@@ -50,6 +50,7 @@ const utils = {
         name = name || "";
         if(status === "create" && id === 0){
             this.createForm = true;
+            document.getElementById("inputForm").reset();
             $("#modalText").text("Create");
             $("#userIdInput").prop('disabled', false);
         }else{
@@ -74,6 +75,7 @@ const utils = {
                 _this.FetchAllUsers();
             },
             failure: function(errMsg) {
+                alert(errMsg);
                 console.error(errMsg);
             }
         });
@@ -93,6 +95,7 @@ const utils = {
                 _this.FetchAllUsers();
             },
             failure: function(errMsg) {
+                alert(errMsg);
                 console.error(errMsg);
             }
         });
