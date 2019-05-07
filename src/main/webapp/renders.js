@@ -39,6 +39,8 @@ const renders = {
             $("#iniInput").val(user.ini);
             $("#cprInput").val(user.cpr);
             $("#passwordInput").val(user.password);
+            $(`#roles option`).prop('selected', false);
+            user.roles.map((x) => $(`#roles option[value='${x}']`).prop('selected', true))
             
         }
     }
