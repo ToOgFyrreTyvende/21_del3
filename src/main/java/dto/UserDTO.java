@@ -4,21 +4,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDTO implements Serializable{
+public class UserDTO implements Serializable, IUserDTO{
 
 	private static final long serialVersionUID = 4545864587995944260L;
-	private int	userId;                     
+	private int	userId;
 	private String userName;
 	private String ini;
 	private String cpr;
 	private String password;
 	private List<String> roles;
 	//TODO Add relevant fields
-	
+
 	public UserDTO() {
 		this.roles = new ArrayList<>();
 	}
-	
+
 	public int getUserId() {
 		return userId;
 	}
@@ -55,12 +55,12 @@ public class UserDTO implements Serializable{
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
-	
+
 	public void addRole(String role){
 		this.roles.add(role);
 	}
 	/**
-	 * 
+	 *
 	 * @param role
 	 * @return true if role existed, false if not
 	 */
@@ -72,7 +72,7 @@ public class UserDTO implements Serializable{
 	public String toString() {
 		return "UserDTO [userId=" + userId + ", userName=" + userName + ", ini=" + ini + ", roles=" + roles + "]";
 	}
-	
-	
-	
+
+
+
 }

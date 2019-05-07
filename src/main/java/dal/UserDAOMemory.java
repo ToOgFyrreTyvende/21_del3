@@ -1,5 +1,7 @@
 package dal;
 
+import dto.IUserDTO;
+import dto.IUserRolesDTO;
 import dto.UserDTO;
 
 import java.util.ArrayList;
@@ -8,15 +10,15 @@ import java.util.List;
 public class UserDAOMemory implements IUserDAO {
     //TODO: implement this shit
 
-    private List<UserDTO> users;
+    private List<IUserDTO> users;
 
     public UserDAOMemory(){
         users = new ArrayList<>();
     }
 
     @Override
-    public UserDTO getUser(int userId) throws DALException{
-        for (UserDTO user : users){
+    public IUserDTO getUser(int userId) throws DALException{
+        for (IUserDTO user : users){
             if (user.getUserId() == userId){
                 return user;
             }
@@ -25,21 +27,26 @@ public class UserDAOMemory implements IUserDAO {
     }
 
     @Override
-    public List<UserDTO> getUserList() throws DALException{
+    public List<IUserDTO> getUserList() {
         return users;
     }
 
     @Override
-    public void createUser(UserDTO user) throws DALException{
+    public List<IUserRolesDTO> getRoles() throws DALException {
+        return null;
+    }
+
+    @Override
+    public void createUser(IUserDTO user) {
         users.add(user);
     }
 
     @Override
-    public void updateUser(UserDTO user) throws DALException{
+    public void updateUser(IUserDTO user) {
         int userID = user.getUserId();
 
         int i = 0;
-        for (UserDTO upUser : users){
+        for (IUserDTO upUser : users){
             if (upUser.getUserId() == userID){
                 users.set(i, upUser);
             }
@@ -48,9 +55,9 @@ public class UserDAOMemory implements IUserDAO {
     }
 
     @Override
-    public void deleteUser(int userId) throws DALException{
+    public void deleteUser(int userId) {
         int i = 0;
-        for (UserDTO user : users){
+        for (IUserDTO user : users){
             if (user.getUserId() == userId){
                 users.remove(i);
             }

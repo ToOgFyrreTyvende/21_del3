@@ -1,7 +1,7 @@
 package functionality;
 
 import dal.IUserDAO;
-import dto.UserDTO;
+import dto.*;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class UserFunctionality implements IUserFunctionality {
     }
 
     @Override
-    public UserDTO getUser(int userId) throws UserInputException{
+    public IUserDTO getUser(int userId) throws UserInputException{
         if (userId >= 11 && userId <= 99){
             try{
                 return userDAO.getUser(userId);
@@ -29,12 +29,12 @@ public class UserFunctionality implements IUserFunctionality {
     }
 
     @Override
-    public List<UserDTO> getUserList() throws DALException{
+    public List<IUserDTO> getUserList() throws DALException{
         return userDAO.getUserList();
     }
 
     @Override
-    public void createUser(UserDTO user) throws UserInputException{
+    public void createUser(IUserDTO user) throws UserInputException{
         if (user.getUserId() >= 11 && user.getUserId() <= 99){
             try{
                 userDAO.createUser(user);
@@ -47,7 +47,7 @@ public class UserFunctionality implements IUserFunctionality {
     }
 
     @Override
-    public void updateUser(UserDTO user) throws UserInputException{
+    public void updateUser(IUserDTO user) throws UserInputException{
         try{
             userDAO.updateUser(user);
         } catch (DALException e){
@@ -61,6 +61,15 @@ public class UserFunctionality implements IUserFunctionality {
             userDAO.deleteUser(userId);
         } catch (DALException e){
             throw new UserInputException("Fejl, kan være bruger ID. " + e.getMessage());
+        }
+    }
+
+    @Override
+    public List<IUserRolesDTO> getRolesList() throws DALException {
+        try {
+            return userDAO.getRoles();
+        } catch (DALException e) {
+            throw new DALException("Fejl, " + e.getMessage());
         }
     }
 }

@@ -1,10 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="icon" type="image/png" href="/lambda.png">
+    <link rel="shortcut icon" type="image/png" href="/lambda.png">
+    <link rel="bookmark" type="image/png" href="/lambda.png">
+    <title>User List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-Hello from index.html
+    <canvas id="bg" class="background"></canvas>
+
+    <div id="nav">
+        <ul id="nav">
+            <li><a class="active" href="#">Home</a></li>
+            <li style="float:right"><a target="_blank" href="https://github.com/ToOgFyrreTyvende/21_del3">Github</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>List of all users</h1>
+        <button type="button" onclick="app.setForm('create')" class="btn btn-primary" data-toggle="modal" data-target="#createUserModal">
+            Create
+        </button>
+        <span id="counter">0</span>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Initials</th>
+                <th>Roles</th>
+                <th>CPR</th>
+                <th>Updatus</th>
+                <th>Deletus</th>
+            </tr>
+            <tbody id="user">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" style="display:none;" id="createUserModal" tabindex="-1" role="dialog"
+        aria-labelledby="createUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><span id="modalText">Create</span> User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="inputForm">
+                        <div id="name-group" class="form-group">
+                            <label for="userId">User ID</label>
+                            <input type="number" id="userIdInput" min="11" max="99" class="form-control" name="userId" placeholder="42">
+                        </div>
+
+                        <div id="email-group" class="form-group">
+                            <label for="userName">Username</label>
+                            <input type="text" id="userNameInput" class="form-control" name="userName" placeholder="Harry Potter">
+                        </div>
+
+                        <div id="email-group" class="form-group">
+                            <label for="ini">Initials</label>
+                            <input type="text" id="iniInput" class="form-control" name="ini" placeholder="HP">
+                        </div>
+
+                        <div id="email-group" class="form-group">
+                            <label for="cpr">CPR</label>
+                            <input type="text" id="cprInput" class="form-control" name="cpr" placeholder="123456-1234">
+                        </div>
+
+                        <div id="email-group" class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="passwordInput" class="form-control" name="password" placeholder="/dev/ttyUSB0">
+                        </div>
+
+                        <div id="email-group" class="form-group">
+                            <label for="roles">Roles</label>
+                            <select class="form-control" id="roles" name="roles" multiple="multiple">
+                            </select>
+                        </div>
+
+                        <button id="submitForm" class="btn btn-success">Submit <span
+                                class="fa fa-arrow-right"></span></button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="renders.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

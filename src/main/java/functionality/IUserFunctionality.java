@@ -1,15 +1,17 @@
 package functionality;
 
 import dal.IUserDAO.*;
-import dto.UserDTO;
+import dto.*;
 
 import java.util.List;
 
 public interface IUserFunctionality {
-    UserDTO getUser(int userId) throws UserInputException;
-    List<UserDTO> getUserList() throws DALException;
-    void createUser(UserDTO user) throws UserInputException;
-    void updateUser(UserDTO user) throws UserInputException;
+    IUserDTO getUser(int userId) throws UserInputException;
+    List<IUserDTO> getUserList() throws DALException;
+    List<IUserRolesDTO> getRolesList() throws DALException;
+
+    void createUser(IUserDTO user) throws UserInputException;
+    void updateUser(IUserDTO user) throws UserInputException;
     void deleteUser(int userId) throws UserInputException;
 
 
